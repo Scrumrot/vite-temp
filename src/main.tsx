@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ThemeProvider, createTheme, StyledEngineProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
@@ -30,7 +31,12 @@ function DynamicThemeProvider({ children }: { children: React.ReactNode }) {
     },
     typography: {
       fontFamily: config.fontFamily,
+      fontSize: config.fontSize,
+      fontWeightRegular: config.fontWeightRegular,
+      fontWeightMedium: config.fontWeightMedium,
+      fontWeightBold: config.fontWeightBold,
     },
+    spacing: config.spacingUnit,
     shape: {
       borderRadius: config.borderRadius,
     },
@@ -41,15 +47,17 @@ function DynamicThemeProvider({ children }: { children: React.ReactNode }) {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <StyledEngineProvider enableCssLayer>
-        {/* Configure CSS layer order for Tailwind v4 + MUI integration */}
-        <GlobalStyles styles="@layer theme, base, mui, components, utilities;" />
-        <DynamicThemeProvider>
-          <CssBaseline />
-          <App />
-        </DynamicThemeProvider>
-      </StyledEngineProvider>
-    </QueryClientProvider>
+    <BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <StyledEngineProvider enableCssLayer>
+          {/* Configure CSS layer order for Tailwind v4 + MUI integration */}
+          <GlobalStyles styles="@layer theme, base, mui, components, utilities;" />
+          <DynamicThemeProvider>
+            <CssBaseline />
+            <App />
+          </DynamicThemeProvider>
+        </StyledEngineProvider>
+      </QueryClientProvider>
+    </BrowserRouter>
   </StrictMode>,
 )

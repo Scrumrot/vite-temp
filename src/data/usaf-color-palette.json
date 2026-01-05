@@ -1,0 +1,284 @@
+{
+  "colors": [
+    {
+      "name": "Black",
+      "yarn": "67138",
+      "pms": null,
+      "hex": "#000000",
+      "federalStandard": "17038"
+    },
+    {
+      "name": "Smoke",
+      "yarn": "67201",
+      "pms": "425",
+      "hex": "#53575A",
+      "federalStandard": "16081"
+    },
+    {
+      "name": "Silver Gray",
+      "yarn": "67137",
+      "pms": "422",
+      "hex": "#9EA1A2",
+      "federalStandard": "16492"
+    },
+    {
+      "name": "White",
+      "yarn": "67101",
+      "pms": null,
+      "hex": "#FFFFFF",
+      "federalStandard": "17925"
+    },
+    {
+      "name": "Air Force Yellow",
+      "yarn": "67103",
+      "pms": "116",
+      "hex": "#FFCD00",
+      "federalStandard": "13655"
+    },
+    {
+      "name": "Yellow",
+      "yarn": "67108",
+      "pms": "136",
+      "hex": "#FFBF3C",
+      "federalStandard": "13538"
+    },
+    {
+      "name": "Golden Orange",
+      "yarn": "67109",
+      "pms": "1375",
+      "hex": "#FF9E18",
+      "federalStandard": "12300"
+    },
+    {
+      "name": "Orange",
+      "yarn": "67110",
+      "pms": "1665",
+      "hex": "#FF4D00",
+      "federalStandard": "12246"
+    },
+    {
+      "name": "Marine Corps Scarlet",
+      "yarn": "67154",
+      "pms": "185",
+      "hex": "#EA0029",
+      "federalStandard": "11302"
+    },
+    {
+      "name": "Scarlet",
+      "yarn": "67111",
+      "pms": "200",
+      "hex": "#C10230",
+      "federalStandard": "11350"
+    },
+    {
+      "name": "Crimson",
+      "yarn": "67112",
+      "pms": "220",
+      "hex": "#A50050",
+      "federalStandard": null
+    },
+    {
+      "name": "Brick Red",
+      "yarn": "67113",
+      "pms": "202",
+      "hex": "#8A2432",
+      "federalStandard": "11136"
+    },
+    {
+      "name": "Garnet",
+      "yarn": "67158",
+      "pms": "209",
+      "hex": "#6F263D",
+      "federalStandard": null
+    },
+    {
+      "name": "Maroon",
+      "yarn": "67114",
+      "pms": "504",
+      "hex": "#572A31",
+      "federalStandard": "10049"
+    },
+    {
+      "name": "Purple",
+      "yarn": "67115",
+      "pms": "267",
+      "hex": "#60269E",
+      "federalStandard": null
+    },
+    {
+      "name": "Brittany",
+      "yarn": "67119",
+      "pms": "551",
+      "hex": "#A2C5D3",
+      "federalStandard": "15526"
+    },
+    {
+      "name": "Bluebird",
+      "yarn": "67117",
+      "pms": "542",
+      "hex": "#7BADD3",
+      "federalStandard": "15092"
+    },
+    {
+      "name": "Oriental",
+      "yarn": "67172",
+      "pms": "285",
+      "hex": "#0071CE",
+      "federalStandard": "15182"
+    },
+    {
+      "name": "Light Blue",
+      "yarn": "67120",
+      "pms": "5415",
+      "hex": "#5B7F95",
+      "federalStandard": "15177"
+    },
+    {
+      "name": "Ultramarine",
+      "yarn": "67118",
+      "pms": "Reflex",
+      "hex": "#001689",
+      "federalStandard": null
+    },
+    {
+      "name": "Cobalt Blue",
+      "yarn": "67122",
+      "pms": "281",
+      "hex": "#00205C",
+      "federalStandard": "15050"
+    },
+    {
+      "name": "Flag Blue",
+      "yarn": "67124",
+      "pms": "282",
+      "hex": "#011E41",
+      "federalStandard": "15048"
+    },
+    {
+      "name": "Old Glory",
+      "yarn": "67178",
+      "pms": "280",
+      "hex": "#002169",
+      "federalStandard": "15056"
+    },
+    {
+      "name": "Grotto Blue",
+      "yarn": "67165",
+      "pms": "3115",
+      "hex": "#00C1D4",
+      "federalStandard": null
+    },
+    {
+      "name": "Teal",
+      "yarn": "67121",
+      "pms": "3035",
+      "hex": "#003E52",
+      "federalStandard": null
+    },
+    {
+      "name": "Mosstone",
+      "yarn": "67127",
+      "pms": "377",
+      "hex": "#7A9A01",
+      "federalStandard": null
+    },
+    {
+      "name": "Emerald",
+      "yarn": "67128",
+      "pms": "369",
+      "hex": "#61A60E",
+      "federalStandard": null
+    },
+    {
+      "name": "Irish",
+      "yarn": "67189",
+      "pms": "348",
+      "hex": "#00843E",
+      "federalStandard": "14120"
+    },
+    {
+      "name": "Green",
+      "yarn": "67129",
+      "pms": "357",
+      "hex": "#1A5632",
+      "federalStandard": "14110"
+    },
+    {
+      "name": "Spruce Green",
+      "yarn": "67130",
+      "pms": "3302",
+      "hex": "#004C45",
+      "federalStandard": "14066"
+    },
+    {
+      "name": "Bottle Green",
+      "yarn": "67191",
+      "pms": "343",
+      "hex": "#095540",
+      "federalStandard": "14109"
+    },
+    {
+      "name": "Army Green",
+      "yarn": "67131",
+      "pms": "553",
+      "hex": "#294634",
+      "federalStandard": "14036"
+    },
+    {
+      "name": "Olive Drab",
+      "yarn": "67133",
+      "pms": "455",
+      "hex": "#695A24",
+      "federalStandard": null
+    },
+    {
+      "name": "Natural",
+      "yarn": "67192",
+      "pms": "454",
+      "hex": "#CCC4A7",
+      "federalStandard": null
+    },
+    {
+      "name": "Khaki",
+      "yarn": "67193",
+      "pms": "452",
+      "hex": "#B2A77E",
+      "federalStandard": "13522"
+    },
+    {
+      "name": "Buff",
+      "yarn": "67135",
+      "pms": "465",
+      "hex": "#BC955C",
+      "federalStandard": "10371"
+    },
+    {
+      "name": "Bronze",
+      "yarn": "67147",
+      "pms": "874",
+      "hex": "#8B6F4B",
+      "federalStandard": null
+    },
+    {
+      "name": "Gold Brown",
+      "yarn": "67194",
+      "pms": "471",
+      "hex": "#BB6125",
+      "federalStandard": "12160"
+    },
+    {
+      "name": "Spice Brown",
+      "yarn": "67196",
+      "pms": "168",
+      "hex": "#75391C",
+      "federalStandard": "10075"
+    },
+    {
+      "name": "Brown",
+      "yarn": "67136",
+      "pms": "476",
+      "hex": "#623C21",
+      "federalStandard": null
+    }
+  ]
+}

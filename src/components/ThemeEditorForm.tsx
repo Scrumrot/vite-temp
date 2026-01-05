@@ -16,10 +16,15 @@ import DialogContent from '@mui/material/DialogContent'
 import DialogActions from '@mui/material/DialogActions'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
+import MenuItem from '@mui/material/MenuItem'
+import Select from '@mui/material/Select'
+import InputLabel from '@mui/material/InputLabel'
+import FormControl from '@mui/material/FormControl'
 import {
   useThemeStore,
   generateThemeFile,
   generateTailwindConfig,
+  themePresets,
   type ThemeConfig,
 } from '../stores/themeStore'
 
@@ -95,6 +100,31 @@ export default function ThemeEditorForm() {
           <Typography variant="body2" className="text-gray-600 mb-6">
             Customize your theme and export the configuration files.
           </Typography>
+
+          {/* Theme Presets */}
+          <Box className="mb-6">
+            <FormControl fullWidth size="small">
+              <InputLabel>Load Theme Preset</InputLabel>
+              <Select
+                label="Load Theme Preset"
+                value=""
+                onChange={(e) => {
+                  const preset = themePresets.find((p) => p.name === e.target.value)
+                  if (preset) {
+                    updateConfig(preset.config)
+                  }
+                }}
+              >
+                {themePresets.map((preset) => (
+                  <MenuItem key={preset.name} value={preset.name}>
+                    {preset.name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Box>
+
+          <Divider className="my-4" />
 
           {/* Mode Toggle */}
           <Box className="mb-6">
@@ -192,7 +222,115 @@ export default function ThemeEditorForm() {
               onChange={(e) => updateConfig({ fontFamily: e.target.value })}
               fullWidth
               size="small"
+              className="mb-4"
             />
+
+            <Typography variant="body2" className="text-gray-600 mb-2">
+              Base Font Size: {config.fontSize}px
+            </Typography>
+            <Slider
+              value={config.fontSize}
+              onChange={(_, value) => updateConfig({ fontSize: value as number })}
+              min={10}
+              max={20}
+              step={1}
+              valueLabelDisplay="auto"
+              marks={[
+                { value: 12, label: '12' },
+                { value: 14, label: '14' },
+                { value: 16, label: '16' },
+                { value: 18, label: '18' },
+              ]}
+              className="mb-4"
+            />
+
+            <Typography variant="body2" className="text-gray-600 mb-2 mt-4">
+              Font Weights
+            </Typography>
+            <Box className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <Box>
+                <Typography variant="caption" className="text-gray-500">
+                  Regular: {config.fontWeightRegular}
+                </Typography>
+                <Slider
+                  value={config.fontWeightRegular}
+                  onChange={(_, value) => updateConfig({ fontWeightRegular: value as number })}
+                  min={100}
+                  max={500}
+                  step={100}
+                  valueLabelDisplay="auto"
+                />
+              </Box>
+              <Box>
+                <Typography variant="caption" className="text-gray-500">
+                  Medium: {config.fontWeightMedium}
+                </Typography>
+                <Slider
+                  value={config.fontWeightMedium}
+                  onChange={(_, value) => updateConfig({ fontWeightMedium: value as number })}
+                  min={400}
+                  max={700}
+                  step={100}
+                  valueLabelDisplay="auto"
+                />
+              </Box>
+              <Box>
+                <Typography variant="caption" className="text-gray-500">
+                  Bold: {config.fontWeightBold}
+                </Typography>
+                <Slider
+                  value={config.fontWeightBold}
+                  onChange={(_, value) => updateConfig({ fontWeightBold: value as number })}
+                  min={600}
+                  max={900}
+                  step={100}
+                  valueLabelDisplay="auto"
+                />
+              </Box>
+            </Box>
+          </Box>
+
+          <Divider className="my-4" />
+
+          {/* Spacing */}
+          <Typography variant="h6" className="mb-4">
+            Spacing
+          </Typography>
+          <Box className="mb-6">
+            <Typography variant="body2" className="text-gray-600 mb-2">
+              Spacing Unit: {config.spacingUnit}px (theme.spacing(1) = {config.spacingUnit}px)
+            </Typography>
+            <Slider
+              value={config.spacingUnit}
+              onChange={(_, value) => updateConfig({ spacingUnit: value as number })}
+              min={4}
+              max={16}
+              step={1}
+              valueLabelDisplay="auto"
+              marks={[
+                { value: 4, label: '4' },
+                { value: 8, label: '8' },
+                { value: 12, label: '12' },
+                { value: 16, label: '16' },
+              ]}
+            />
+            <Box className="mt-4 flex gap-2 flex-wrap">
+              {[1, 2, 3, 4].map((n) => (
+                <Box
+                  key={n}
+                  sx={{
+                    width: config.spacingUnit * n,
+                    height: config.spacingUnit * n,
+                    backgroundColor: config.primary,
+                    borderRadius: `${config.borderRadius}px`,
+                  }}
+                  title={`spacing(${n}) = ${config.spacingUnit * n}px`}
+                />
+              ))}
+              <Typography variant="caption" className="text-gray-500 self-center ml-2">
+                spacing(1-4) preview
+              </Typography>
+            </Box>
           </Box>
 
           <Divider className="my-4" />
@@ -239,9 +377,34 @@ export default function ThemeEditorForm() {
               }}
             >
               <Typography
-                sx={{ color: config.text, fontFamily: config.fontFamily }}
+                sx={{
+                  color: config.text,
+                  fontFamily: config.fontFamily,
+                  fontSize: `${config.fontSize}px`,
+                  fontWeight: config.fontWeightRegular,
+                }}
               >
-                Sample text with your font
+                Regular text ({config.fontSize}px, weight {config.fontWeightRegular})
+              </Typography>
+              <Typography
+                sx={{
+                  color: config.text,
+                  fontFamily: config.fontFamily,
+                  fontSize: `${config.fontSize}px`,
+                  fontWeight: config.fontWeightMedium,
+                }}
+              >
+                Medium text (weight {config.fontWeightMedium})
+              </Typography>
+              <Typography
+                sx={{
+                  color: config.text,
+                  fontFamily: config.fontFamily,
+                  fontSize: `${config.fontSize}px`,
+                  fontWeight: config.fontWeightBold,
+                }}
+              >
+                Bold text (weight {config.fontWeightBold})
               </Typography>
             </Box>
             <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>

@@ -8,7 +8,13 @@
       "Bash(npm install:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(gh repo create:*)"
+      "Bash(gh repo create:*)",
+      "WebFetch(domain:ts-morph.com)",
+      "WebFetch(domain:zod.dev)",
+      "Bash(npm run generate-zod:*)",
+      "Bash(npm run generate-store:*)",
+      "Bash(npm run generate-form:*)",
+      "WebFetch(domain:usafpatches.com)"
     ]
   }
 }
