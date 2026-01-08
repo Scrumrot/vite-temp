@@ -1,4 +1,4 @@
-{
+export const usafThemes = {
   "light": {
     "name": "USAF Light",
     "mode": "light",
@@ -24,7 +24,7 @@
   "dark": {
     "name": "USAF Dark",
     "mode": "dark",
-    "primary": "#0071CE",
+    "primary": "#0076f5",
     "primaryName": "Oriental",
     "secondary": "#FFCD00",
     "secondaryName": "Air Force Yellow",
@@ -36,9 +36,9 @@
     "infoName": "Grotto Blue",
     "success": "#61A60E",
     "successName": "Emerald",
-    "background": "#1b2737",
+    "background": "#23282f",
     "backgroundName": "Flag Blue",
-    "paper": "#2b3f64",
+    "paper": "#394356",
     "paperName": "Cobalt Blue",
     "text": "#e7effe",
     "textName": "White"

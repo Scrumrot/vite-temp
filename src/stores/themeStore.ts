@@ -1,6 +1,6 @@
-import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
-import usafThemes from '../data/usaf-themes.json'
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
+import { usafThemes } from '@/configs/themeConfig';
 
 export interface ThemeConfig {
   primary: string
