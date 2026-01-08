@@ -140,7 +140,7 @@ export default function Colors() {
           title="Official USAF Colors"
           columns={columns}
           data={usafColors.colors}
-          defaultRowsPerPage={10}
+          defaultRowsPerPage={50}
           searchPlaceholder="Search colors..."
           onRowClick={handleRowClick}
           getRowId={(row) => row.yarn}

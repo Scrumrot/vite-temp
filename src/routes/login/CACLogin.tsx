@@ -30,14 +30,27 @@ import {
   type Certificate,
   type PKIUser,
   type PKIAuthStep,
-} from '../services/mockPKIAuth'
-import { useAuth } from '../contexts/AuthContext'
+} from '../../services/mockPKIAuth.ts'
+import { useAuth } from '../../contexts/AuthContext.tsx'
+
+const USG_INTRO = `You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only.
+
+By using this IS (which includes any device attached to this IS), you consent to the following conditions:`
+
+const USG_BULLETS = [
+  'The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.',
+  'At any time, the USG may inspect and seize data stored on this IS.',
+  'Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG authorized purpose.',
+  'This IS includes security measures (e.g., authentication and access controls) to protect USG interests--not for your personal benefit or privacy.',
+  'NOTICE: There is the potential that information presented and exported from the AF Portal contains FOUO or Controlled Unclassified Information (CUI). It is the responsibility of all users to ensure information extracted from the AF Portal is appropriately marked and properly safeguarded. If you are not sure of the safeguards necessary for the information, contact your functional lead or Information Security Officer.',
+]
 
 export default function CACLogin() {
   const location = useLocation()
   const navigate = useNavigate()
   const { login } = useAuth()
 
+  const [acknowledged, setAcknowledged] = useState(false)
   const [dialogOpen, setDialogOpen] = useState(false)
   const [step, setStep] = useState<PKIAuthStep>('idle')
   const [certificates, setCertificates] = useState<Certificate[]>([])
@@ -145,7 +158,7 @@ export default function CACLogin() {
             <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
               Select a certificate for authentication:
             </Typography>
-            <List sx={{ bgcolor: 'background.paper', border: 1, borderColor: 'divider', borderRadius: 1 }}>
+            <List sx={{ bgcolor: 'background.paper', border: 1, borderColor: 'divider', borderRadius: 1}}>
               {certificates.map((cert) => (
                 <ListItemButton
                   key={cert.id}
@@ -427,6 +440,65 @@ export default function CACLogin() {
               OK
             </Button>
           )}
+        </DialogActions>
+      </Dialog>
+
+      {/* USG Acknowledgment Dialog */}
+      <Dialog
+        open={!acknowledged}
+        maxWidth="md"
+        fullWidth
+        PaperProps={{
+          sx: {
+            borderRadius: 1,
+            boxShadow: 24,
+          },
+        }}
+      >
+        <DialogTitle
+          sx={{
+            bgcolor: 'warning.main',
+            color: 'warning.contrastText',
+            fontWeight: 'bold',
+          }}
+        >
+          Notice:
+        </DialogTitle>
+
+        <DialogContent sx={{ mt: 2 }}>
+          <Typography
+            variant="h6"
+            sx={{
+              whiteSpace: 'pre-line',
+              lineHeight: 1.8,
+              mb: 2,
+            }}
+          >
+            {USG_INTRO}
+          </Typography>
+          <Box component="ul" sx={{ pl: 3, m: 0, listStyleType: 'disc'  }}>
+            {USG_BULLETS.map((bullet, index) => (
+              <Typography
+                key={index}
+                component="li"
+                variant="body1"
+                sx={{ mb: 1.5, lineHeight: 1.6 }}
+              >
+                {bullet}
+              </Typography>
+            ))}
+          </Box>
+        </DialogContent>
+
+        <DialogActions sx={{ p: 3 }}>
+          <Button
+            variant="contained"
+            size="large"
+            onClick={() => setAcknowledged(true)}
+            sx={{ minWidth: 200 }}
+          >
+            I Acknowledge
+          </Button>
         </DialogActions>
       </Dialog>
     </Box>
